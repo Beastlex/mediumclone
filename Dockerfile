@@ -2,9 +2,9 @@ FROM node:16.14-alpine
 
 WORKDIR /app
 COPY --chown=node:node package.json .
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 USER node
 COPY --chown=node:node . .
 
-CMD ["npm", "start:prod"]
+CMD ["npm", "run", "start:prod"]
